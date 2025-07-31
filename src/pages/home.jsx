@@ -7,6 +7,8 @@ import CheckoutPage from "./client/checkoutPage";
 import Footer from "../components/footer";
 import HomePage from "./home/homePage";
 import ProfilePage from "../components/userProfile";
+import AboutPage from "./home/about";
+import ContactPage from "./home/contactPage";
 
 
 export default function Home() {
@@ -18,8 +20,8 @@ export default function Home() {
             <Routes path="/*">
                 <Route path="/" element={<HomePage />} />
                 <Route path="/product" element={<ProductPage />} />
-                <Route path="/about" element={<h1>Home</h1>} />
-                <Route path="/contact" element={<h1>Home</h1>} />
+                <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<ContactPage />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile/:userId" element={<ProfilePage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
