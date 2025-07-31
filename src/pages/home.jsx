@@ -9,6 +9,7 @@ import HomePage from "./home/homePage";
 import ProfilePage from "../components/userProfile";
 import AboutPage from "./home/about";
 import ContactPage from "./home/contactPage";
+import ForgotPassword from "./foretPassword";
 
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
                 <Route path="/product" element={<ProductPage />} />
                 <Route path="/about" element={<AboutPage />} />
                 <Route path="/contact" element={<ContactPage />} />
+                <Route path="/forget_password" element={<ForgotPassword />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile/:userId" element={<ProfilePage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />

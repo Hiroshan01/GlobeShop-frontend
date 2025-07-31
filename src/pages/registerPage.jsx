@@ -36,38 +36,42 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="w-full h-screen bg-[url('/images/hero-1.jpg')]  bg-center bg-cover flex justify-center items-center">
-      <div className="w-full md:w-[50%] h-full"></div>
-      <div className="w-full md:w-[50%] h-full flex justify-center items-center">
-        <div className="w-[80%] md:w-[500px] h-[600px] backdrop-blur-lg rounded-[20px] shadow-xl flex flex-col justify-center items-center p-6">
+    <div className="w-full min-h-screen bg-[url('/images/hero-1.jpg')] bg-center bg-cover flex flex-col md:flex-row justify-center items-center p-4">
+      {/* Left side - hidden on mobile, visible on md+ */}
+      <div className="hidden md:block w-full md:w-[50%] h-full"></div>
+
+      {/* Right side - full width on mobile, 50% on md+ */}
+      <div className="w-full md:w-[50%] flex justify-center items-center">
+        <div className="w-full max-w-sm md:w-[500px] md:h-[600px] min-h-[500px] backdrop-blur-lg rounded-[20px] shadow-xl flex flex-col justify-center items-center p-4 md:p-6 mx-4">
           <input
             onChange={(e) => setFirstName(e.target.value)}
             value={firstName}
-            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[10px] flex text-center text-shadow-white"
+            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[8px] md:my-[10px] px-4 text-center text-shadow-white placeholder:text-gray-400"
             placeholder="First Name"
           />
           <input
             onChange={(e) => setLastName(e.target.value)}
             value={lastName}
-            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[10px] flex text-center text-shadow-white"
+            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[8px] md:my-[10px] px-4 text-center text-shadow-white placeholder:text-gray-400"
             placeholder="Last Name"
           />
           <input
             onChange={(e) => setEmail(e.target.value)}
             value={email}
-            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[10px] flex text-center text-shadow-white"
+            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[8px] md:my-[10px] px-4 text-center text-shadow-white placeholder:text-gray-400"
             placeholder="Email"
+            type="email"
           />
           <input
             onChange={(e) => setPassword(e.target.value)}
             value={password}
             type="password"
-            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[10px] flex text-center text-shadow-white"
+            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[8px] md:my-[10px] px-4 text-center text-shadow-white placeholder:text-gray-400"
             placeholder="Password"
           />
           <button
             onClick={handleRegister}
-            className="w-full md:w-[300px] cursor-pointer h-[50px] bg-gradient-to-r from-purple-600 to-blue-600 rounded-[10px] my-[10px] flex justify-center items-center text-center text-white font-bold text-xl"
+            className="w-full md:w-[300px] cursor-pointer h-[50px] bg-gradient-to-r from-purple-600 to-blue-600 rounded-[10px] my-[8px] md:my-[10px] flex justify-center items-center text-center text-white font-bold text-lg md:text-xl hover:shadow-lg transition-all duration-200"
           >
             Register
           </button>
