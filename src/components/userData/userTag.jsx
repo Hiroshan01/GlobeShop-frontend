@@ -107,10 +107,9 @@ function UserTag() {
     )
   }
 
-  // Not logged in - show login/signup buttons
   if (!user) {
     return (
-      <div className="flex space-x-2">
+      <div className="hidden md:flex space-x-2">
         <Link
           to="/login"
           className="px-4 py-2 text-purple-900 border border-purple-600 rounded hover:bg-purple-50"
@@ -126,6 +125,7 @@ function UserTag() {
       </div>
     )
   }
+
 
   // Logged in - show user dropdown
   return (
