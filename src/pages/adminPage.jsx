@@ -1,10 +1,11 @@
 import { Link, Route, Routes } from "react-router-dom";
 import AdminProductPage from "./admin/adminProductPage";
-import { FaProductHunt, FaUsers, FaBox, FaStar } from 'react-icons/fa'; 
+import { FaProductHunt, FaUsers, FaBox, FaStar } from 'react-icons/fa';
 import AdminUserPage from "./admin/adminUserPage";
 import AddProduct from "./admin/addProductPage";
 import EditProduct from "./admin/product/editProduct";
 import AdminOrderPage from "./admin/product/adminOrderPage";
+import EditUser from "./admin/user/editUser";
 
 export default function AdminPage() {
   return (
@@ -48,11 +49,12 @@ export default function AdminPage() {
       <div className="h-full w-[calc(100%-250px)] bg-white p-6">
         <Routes>
           <Route path="/product" element={<AdminProductPage />} />
-          <Route path="/user" element={<AdminUserPage/>} />
-          <Route path="/order" element={<AdminOrderPage/>} />
+          <Route path="/user" element={<AdminUserPage />} />
+          <Route path="/order" element={<AdminOrderPage />} />
           <Route path="/review" element={<h1 className="text-2xl">Reviews Page</h1>} />
-          <Route path="/add-product" element={<AddProduct/>} />
-          <Route path="/edit-product" element={<EditProduct/>} />
+          <Route path="/add-product" element={<AddProduct />} />
+          <Route path="/edit-product" element={<EditProduct />} />
+          <Route path="/edit-user" element={<EditUser />} />
         </Routes>
       </div>
     </div>
