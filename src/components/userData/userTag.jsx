@@ -48,6 +48,7 @@ function UserTag() {
 
       const userEmail = getUserEmail(token)
       let userData = response.data
+      console.log('User data:', userData)
 
       // If API returns array, find current user
       if (Array.isArray(response.data)) {
@@ -67,7 +68,7 @@ function UserTag() {
           city: userData.city,
           country: userData.country,
           bio: userData.bio,
-          image: userData.image || "/default-avatar.png", // Fallback image
+          image: userData.img,
           createdAt: userData.createdAt
         })
       }
@@ -106,10 +107,9 @@ function UserTag() {
     )
   }
 
-  // Not logged in - show login/signup buttons
   if (!user) {
     return (
-      <div className="flex space-x-2">
+      <div className="hidden md:flex space-x-2">
         <Link
           to="/login"
           className="px-4 py-2 text-purple-900 border border-purple-600 rounded hover:bg-purple-50"
@@ -125,6 +125,7 @@ function UserTag() {
       </div>
     )
   }
+
 
   // Logged in - show user dropdown
   return (
@@ -185,11 +186,9 @@ function UserTag() {
                 to={`/profile/${user.userId}`}
                 state={{ user }} // Pass user data via state
                 onClick={() => setShowDropdown(false)}
-                className='flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors'
+                className='w-full text-left px-4 py-2 hover:bg-gray-100'
               >
-                <svg className='w-4 h-4 mr-3' fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7-7h14a7 7 0 00-7-7z" />
-                </svg>
+
                 Profile
               </Link>
             </>
@@ -217,11 +216,9 @@ function UserTag() {
                 to={`/profile/${user.userId}`}
                 state={{ user }} // Pass user data via state
                 onClick={() => setShowDropdown(false)}
-                className='flex items-center w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors'
+                className='w-full text-left px-4 py-2 hover:bg-gray-100'
               >
-                <svg className='w-4 h-4 mr-3' fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7-7h14a7 7 0 00-7-7z" />
-                </svg>
+
                 Profile
               </Link>
             </>
