@@ -8,6 +8,7 @@ export default function RegisterPage() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("customer"); // Default to customer
   const navigate = useNavigate();
 
   async function handleRegister() {
@@ -18,7 +19,8 @@ export default function RegisterPage() {
           email: email,
           firstName: firstName,
           lastName: lastName,
-          password: password
+          password: password,
+          role: role // Include selected role
         },
         {
           headers: {
@@ -30,8 +32,8 @@ export default function RegisterPage() {
       navigate("/login");
       console.log(response.data);
     } catch (e) {
-      toast.error(e.response.data.message);
-      console.error("Registration failed:", e.response.data.message);
+      toast.error(e.response?.data?.message || "Registration failed");
+      console.error("Registration failed:", e.response?.data?.message);
     }
   }
 
@@ -69,6 +71,14 @@ export default function RegisterPage() {
             className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[8px] md:my-[10px] px-4 text-center text-shadow-white placeholder:text-gray-400"
             placeholder="Password"
           />
+          <select
+            onChange={(e) => setRole(e.target.value)}
+            value={role}
+            className="w-full md:w-[300px] h-[50px] border border-secondary rounded-[10px] my-[8px] md:my-[10px] px-4 text-center text-shadow-white bg-transparent appearance-none"
+          >
+            <option value="customer">Customer</option>
+            <option value="seller">Seller</option>
+          </select>
           <button
             onClick={handleRegister}
             className="w-full md:w-[300px] cursor-pointer h-[50px] bg-gradient-to-r from-purple-600 to-blue-600 rounded-[10px] my-[8px] md:my-[10px] flex justify-center items-center text-center text-white font-bold text-lg md:text-xl hover:shadow-lg transition-all duration-200"

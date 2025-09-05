@@ -10,6 +10,8 @@ import ProfilePage from "../components/userProfile";
 import AboutPage from "./home/about";
 import ContactPage from "./home/contactPage";
 import ForgotPassword from "./foretPassword";
+import SellerDashboard from "./seller/sellerDashboard";
+import SearchProductPage from "./client/searchProduct";
 
 
 export default function Home() {
@@ -27,7 +29,9 @@ export default function Home() {
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/profile/:userId" element={<ProfilePage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
+                <Route path="/search" element={<SearchProductPage />} />
                 <Route path="/overview/:id" element={<ProductOverview />} />
+
                 <Route path="/*" element={<h1>404 Not Found</h1>} />
             </Routes>
             <Footer />

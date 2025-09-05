@@ -9,6 +9,7 @@ import TestPage from './pages/testPages';
 import Home from './pages/home';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import ForgotPassword from './pages/foretPassword';
+import SellerDashboard from './pages/seller/sellerDashboard';
 
 function App() {
   const googleClientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
@@ -23,6 +24,8 @@ function App() {
             <Route path="/forget" element={<ForgotPassword />} />
             <Route path="/sign-up" element={<RegisterPage />} />
             <Route path="/admin/*" element={<AdminPage />} />
+            <Route path="/seller/*" element={<SellerDashboard />} />
+
             <Route path="/test" element={<TestPage />} />
 
             {/* 404 Page Not Found */}

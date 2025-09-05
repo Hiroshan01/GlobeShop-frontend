@@ -92,6 +92,8 @@ function UserTag() {
     setShowDropdown(false)
     if (user.role === 'admin') {
       window.location.href = '/admin'
+    } else if (user.role === 'seller') {
+      window.location.href = '/seller'
     } else {
       window.location.href = '/user-dashboard'
     }
@@ -125,7 +127,6 @@ function UserTag() {
       </div>
     )
   }
-
 
   // Logged in - show user dropdown
   return (
@@ -186,9 +187,28 @@ function UserTag() {
                 to={`/profile/${user.userId}`}
                 state={{ user }} // Pass user data via state
                 onClick={() => setShowDropdown(false)}
-                className='w-full text-left px-4 py-2 hover:bg-gray-100'
+                className='w-full text-left px-4 py-2 hover:bg-gray-100 block'
               >
+                Profile
+              </Link>
+            </>
+          )}
 
+          {/* Seller Dropdown (only dashboard and profile) */}
+          {user.role === 'seller' && (
+            <>
+              <button
+                onClick={goToDashboard}
+                className="w-full text-left px-4 py-2 hover:bg-gray-100"
+              >
+                Seller Dashboard
+              </button>
+              <Link
+                to={`/profile/${user.userId}`}
+                state={{ user }} // Pass user data via state
+                onClick={() => setShowDropdown(false)}
+                className='w-full text-left px-4 py-2 hover:bg-gray-100 block'
+              >
                 Profile
               </Link>
             </>
@@ -216,15 +236,14 @@ function UserTag() {
                 to={`/profile/${user.userId}`}
                 state={{ user }} // Pass user data via state
                 onClick={() => setShowDropdown(false)}
-                className='w-full text-left px-4 py-2 hover:bg-gray-100'
+                className='w-full text-left px-4 py-2 hover:bg-gray-100 block'
               >
-
                 Profile
               </Link>
             </>
           )}
 
-          {/* Common for both */}
+          {/* Common for all */}
           <hr className="my-1" />
           <button
             onClick={logout}

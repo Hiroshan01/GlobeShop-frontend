@@ -35,6 +35,9 @@ function Header() {
         <Link to="/product" className='text-lg font-semibold hover:text-purple-500 transition-colors text-purple-900'>
           Product
         </Link>
+        <Link to="/search" className='text-lg font-semibold hover:text-purple-500 transition-colors text-purple-900'>
+          Search
+        </Link>
         <Link to="/about" className='text-lg font-semibold hover:text-purple-500 transition-colors text-purple-900'>
           About
         </Link>
